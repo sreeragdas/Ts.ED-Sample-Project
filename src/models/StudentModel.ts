@@ -1,25 +1,25 @@
 import {Property} from "@tsed/schema";
-import { Column, CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-
-export class StudentModel {
+import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+@Entity('student')
+export class StudentModel extends BaseEntity {
   @Property()
   @PrimaryGeneratedColumn()
-  id: string;
+  id!: string;
 
-  @Column()
+  @Column({nullable:true , default:null})
   name:string
 
-  @Column()
-  address:string
+  @Column({nullable:true , default:null})
+  address!:string
 
-  @Column()
-  class:string
+  @Column({nullable:true , default:null})
+  class!:string
 
   @Column()
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 
   @Column()
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt!: Date;
 }
